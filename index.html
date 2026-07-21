@@ -326,6 +326,8 @@ that want to grow.
 
 <script>
 
+document.addEventListener("DOMContentLoaded", function () {
+
     const menuToggle =
         document.querySelector(".menu-toggle");
 
@@ -336,7 +338,7 @@ that want to grow.
         menuToggle.querySelector("i");
 
 
-    menuToggle.addEventListener("click", () => {
+    menuToggle.addEventListener("click", function () {
 
         mobileMenu.classList.toggle("active");
 
@@ -358,23 +360,38 @@ that want to grow.
     });
 
 
-    /* CLOSE MENU AFTER CLICKING A LINK */
+    /* CLOSE MENU WHEN LINK IS CLICKED */
 
-    document
-        .querySelectorAll(".mobile-menu a")
-        .forEach(link => {
+    const mobileLinks =
+        document.querySelectorAll(
+            ".mobile-menu a"
+        );
 
-            link.addEventListener("click", () => {
 
-                mobileMenu.classList.remove("active");
+    mobileLinks.forEach(function (link) {
 
-                menuIcon.classList.remove("fa-xmark");
+        link.addEventListener(
+            "click",
+            function () {
 
-                menuIcon.classList.add("fa-bars");
+                mobileMenu.classList.remove(
+                    "active"
+                );
 
-            });
+                menuIcon.classList.remove(
+                    "fa-xmark"
+                );
 
-        });
+                menuIcon.classList.add(
+                    "fa-bars"
+                );
+
+            }
+        );
+
+    });
+
+});
 
 </script>
 

@@ -1669,3 +1669,134 @@ header {
     }
 
 }
+  /* =========================================
+   MOBILE MENU FINAL FIX
+========================================= */
+
+@media (max-width: 768px) {
+
+    header {
+        position: fixed;
+        z-index: 9999;
+    }
+
+    .mobile-menu {
+        display: block !important;
+
+        position: fixed;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 25px 20px 30px;
+
+        background: rgba(5, 8, 22, 0.98);
+
+        backdrop-filter: blur(25px);
+
+        border-top: 1px solid rgba(255,255,255,0.08);
+
+        box-shadow:
+            0 20px 50px rgba(0,0,0,0.5);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transform: translateY(-20px);
+
+        transition: 
+            opacity 0.3s ease,
+            transform 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    /* OPEN STATE */
+
+    .mobile-menu.active {
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        transform: translateY(0);
+    }
+
+    /* MENU LIST */
+
+    .mobile-menu ul {
+        display: flex !important;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        margin: 0;
+
+        padding: 0;
+
+        list-style: none;
+    }
+
+    .mobile-menu ul li {
+        width: 100%;
+    }
+
+    .mobile-menu ul li a {
+        display: block;
+
+        width: 100%;
+
+        padding: 14px 15px;
+
+        color: white;
+
+        font-size: 16px;
+
+        border-radius: 10px;
+
+        transition: 0.3s ease;
+    }
+
+    .mobile-menu ul li a:hover {
+        color: #00c6ff;
+
+        background:
+            rgba(0,198,255,0.08);
+    }
+
+    /* GET QUOTE */
+
+    .mobile-quote {
+        display: flex !important;
+
+        width: 100%;
+
+        margin-top: 18px;
+
+        padding: 14px;
+
+        align-items: center;
+
+        justify-content: center;
+
+        border-radius: 10px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #00c6ff,
+                #7c3aed
+            );
+
+        color: white;
+
+        font-weight: 600;
+    }
+
+}
