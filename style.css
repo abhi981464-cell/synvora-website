@@ -1443,3 +1443,22 @@ header {
         font-size: 36px;
     }
 }
+  /* =========================================
+   KEEP QUOTE BUTTON VISIBLE ON MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+
+    .quote-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 9px 13px;
+
+        font-size: 11px;
+
+        white-space: nowrap;
+    }
+
+}
