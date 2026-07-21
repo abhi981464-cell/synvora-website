@@ -1356,3 +1356,182 @@ header{
     }
 
 } 
+
+  /* =========================================
+   FINAL MOBILE HERO FIX
+========================================= */
+
+@media (max-width: 768px) {
+
+    /* Prevent navbar from covering hero */
+    header {
+        position: relative;
+        z-index: 1000;
+    }
+
+    /* Hero starts below navbar */
+    .home {
+        width: 100%;
+        padding: 40px 20px 0;
+        margin-top: 0;
+    }
+
+    .home-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    /* HERO TEXT */
+    .home-left {
+        width: 100%;
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    .tag {
+        display: inline-block;
+        font-size: 11px;
+        padding: 8px 14px;
+        margin-bottom: 18px;
+    }
+
+    .home-left h1 {
+        font-size: clamp(36px, 10vw, 48px);
+        line-height: 1.08;
+        margin: 0 0 20px;
+    }
+
+    .home-left p {
+        font-size: 15px;
+        line-height: 1.7;
+        max-width: 500px;
+        margin: 0 auto 25px;
+    }
+
+    /* FEATURES */
+    .features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        max-width: 400px;
+        margin: 0 auto 30px;
+        text-align: left;
+    }
+
+    .features div {
+        font-size: 12px;
+        padding: 8px 4px;
+    }
+
+    /* BUTTONS */
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .btn,
+    .btn2 {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+
+    /* HERO IMAGE AREA */
+    .home-right {
+        width: 100%;
+        height: 420px;
+        min-height: 420px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .hero-image {
+        width: 75%;
+        max-width: 330px;
+        height: auto;
+        position: relative;
+        z-index: 5;
+    }
+
+    /* REDUCE ORBIT SIZE */
+    .orbit1 {
+        width: 260px;
+        height: 260px;
+    }
+
+    .orbit2 {
+        width: 320px;
+        height: 320px;
+    }
+
+    .orbit3 {
+        width: 380px;
+        height: 380px;
+    }
+
+    .orbit4 {
+        width: 440px;
+        height: 440px;
+    }
+
+    /* FLOATING CARDS */
+    .floating-card {
+        transform: scale(.65);
+        z-index: 10;
+        white-space: nowrap;
+    }
+
+    .card1 {
+        top: 5%;
+        left: -35px;
+    }
+
+    .card2 {
+        top: 5%;
+        right: -35px;
+    }
+
+    .card3 {
+        bottom: 5%;
+        left: -35px;
+    }
+
+    .card4 {
+        bottom: 5%;
+        right: -35px;
+    }
+
+    /* STATS */
+    .stats {
+        width: calc(100% - 40px);
+        margin: 50px auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* SERVICES */
+    .services-grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .service-card,
+    .large,
+    .wide {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 200px;
+    }
+
+}
