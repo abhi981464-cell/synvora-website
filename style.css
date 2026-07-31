@@ -2441,3 +2441,252 @@ section {
     }
 
 }
+
+/* =========================================
+   PORTFOLIO
+========================================= */
+
+.portfolio {
+
+    width: 90%;
+    max-width: 1300px;
+
+    margin: 140px auto;
+
+}
+
+.portfolio-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+
+}
+
+.portfolio-card {
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    backdrop-filter: blur(18px);
+
+    transition: .4s;
+
+}
+
+.portfolio-card:hover {
+
+    transform: translateY(-10px);
+
+    border-color: #00C6FF;
+
+    box-shadow:
+        0 25px 60px rgba(0,198,255,.18);
+
+}
+
+.portfolio-video {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 280px;
+
+    overflow: hidden;
+
+    background: #080d1d;
+
+}
+
+.portfolio-video video {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .5s;
+
+}
+
+.portfolio-card:hover
+.portfolio-video video {
+
+    transform: scale(1.06);
+
+}
+
+.video-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(5,8,22,.25);
+
+    pointer-events: none;
+
+}
+
+.video-overlay i {
+
+    width: 60px;
+
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(0,198,255,.85);
+
+    color: white;
+
+    font-size: 20px;
+
+    box-shadow:
+        0 0 30px rgba(0,198,255,.4);
+
+}
+
+.portfolio-content {
+
+    padding: 30px;
+
+}
+
+.project-category {
+
+    color: #00C6FF;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+.portfolio-content h3 {
+
+    font-size: 26px;
+
+    margin: 12px 0;
+
+}
+
+.portfolio-content p {
+
+    color: #94A3B8;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+
+}
+
+.project-btn {
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    transition: .3s;
+
+}
+
+.project-btn i {
+
+    color: #00C6FF;
+
+    transition: .3s;
+
+}
+
+.project-btn:hover {
+
+    color: #00C6FF;
+
+}
+
+.project-btn:hover i {
+
+    transform: translateX(6px);
+
+}
+
+
+/* =========================================
+   PORTFOLIO MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .portfolio {
+
+        width: 92%;
+
+        margin: 100px auto;
+
+    }
+
+    .portfolio-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+    }
+
+    .portfolio-video {
+
+        height: 230px;
+
+    }
+
+    .portfolio-content {
+
+        padding: 24px;
+
+    }
+
+    .portfolio-content h3 {
+
+        font-size: 22px;
+
+    }
+
+}

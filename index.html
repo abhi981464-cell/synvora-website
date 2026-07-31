@@ -335,6 +335,192 @@ that want to grow.
 
 </section>
 
+<!-- ================= PORTFOLIO ================= -->
+
+<section class="portfolio" id="portfolio">
+
+    <div class="section-title">
+
+        <span>OUR WORK</span>
+
+        <h2>Ideas We Turn Into Reality</h2>
+
+        <p>
+            Explore concept projects that showcase the type of AI,
+            automation and technology solutions Synvora can build.
+        </p>
+
+    </div>
+
+    <div class="portfolio-grid">
+
+        <!-- PROJECT 1 -->
+
+        <div class="portfolio-card">
+
+            <div class="portfolio-video">
+
+                <video
+                    src="videos/ai-assistant.mp4"
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata">
+                </video>
+
+                <div class="video-overlay">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+
+            </div>
+
+            <div class="portfolio-content">
+
+                <span class="project-category">AI SOLUTIONS</span>
+
+                <h3>AI Business Assistant</h3>
+
+                <p>
+                    An intelligent AI assistant designed to automate
+                    customer support and business operations.
+                </p>
+
+                <button class="project-btn">
+                    Explore Project
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 2 -->
+
+        <div class="portfolio-card">
+
+            <div class="portfolio-video">
+
+                <video
+                    src="videos/automation.mp4"
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata">
+                </video>
+
+                <div class="video-overlay">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+
+            </div>
+
+            <div class="portfolio-content">
+
+                <span class="project-category">AUTOMATION</span>
+
+                <h3>Smart Business Automation</h3>
+
+                <p>
+                    Automated workflows that connect business tools
+                    and reduce repetitive manual tasks.
+                </p>
+
+                <button class="project-btn">
+                    Explore Project
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 3 -->
+
+        <div class="portfolio-card">
+
+            <div class="portfolio-video">
+
+                <video
+                    src="videos/web-development.mp4"
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata">
+                </video>
+
+                <div class="video-overlay">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+
+            </div>
+
+            <div class="portfolio-content">
+
+                <span class="project-category">WEB DEVELOPMENT</span>
+
+                <h3>Modern Digital Platform</h3>
+
+                <p>
+                    High-performance, responsive websites designed
+                    for modern businesses and startups.
+                </p>
+
+                <button class="project-btn">
+                    Explore Project
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 4 -->
+
+        <div class="portfolio-card">
+
+            <div class="portfolio-video">
+
+                <video
+                    src="videos/cloud.mp4"
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata">
+                </video>
+
+                <div class="video-overlay">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+
+            </div>
+
+            <div class="portfolio-content">
+
+                <span class="project-category">CLOUD & DEVOPS</span>
+
+                <h3>Scalable Cloud Infrastructure</h3>
+
+                <p>
+                    Secure and scalable cloud infrastructure built
+                    for reliable applications and growing businesses.
+                </p>
+
+                <button class="project-btn">
+                    Explore Project
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 <!-- ================= CONTACT / GET QUOTE ================= -->
 
 <section class="contact" id="contact">
@@ -653,6 +839,53 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
     });
+
+    /* ================= PORTFOLIO FILTER ================= */
+
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
+
+const projectCards =
+    document.querySelectorAll(".project-card");
+
+filterButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        const filter =
+            button.getAttribute("data-filter");
+
+        filterButtons.forEach(function(btn) {
+
+            btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+        projectCards.forEach(function(card) {
+
+            const category =
+                card.getAttribute("data-category");
+
+            if (
+                filter === "all" ||
+                category === filter
+            ) {
+
+                card.style.display = "flex";
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+});
 
 });
 
