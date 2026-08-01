@@ -352,33 +352,48 @@ that want to grow.
 
     </div>
 
+
     <div class="portfolio-grid">
 
-        <!-- PROJECT 1 -->
 
-        <div class="portfolio-card">
+        <!-- ================= PROJECT 1 ================= -->
+
+        <div class="portfolio-card"
+             data-project="ai">
 
             <div class="portfolio-video">
 
                 <video
                     src="videos/ai-assistant.mp4"
                     muted
-                    loop
                     playsinline
                     preload="metadata">
                 </video>
 
                 <div class="video-overlay">
-                    <i class="fa-solid fa-play"></i>
+
+                    <div class="play-circle">
+
+                        <i class="fa-solid fa-play"></i>
+
+                    </div>
+
+                    <span>Watch Concept</span>
+
                 </div>
 
             </div>
 
+
             <div class="portfolio-content">
 
-                <span class="project-category">AI SOLUTIONS</span>
+                <span class="project-category">
+                    AI SOLUTIONS
+                </span>
 
-                <h3>AI Business Assistant</h3>
+                <h3>
+                    AI Business Assistant
+                </h3>
 
                 <p>
                     An intelligent AI assistant designed to automate
@@ -386,8 +401,11 @@ that want to grow.
                 </p>
 
                 <button class="project-btn">
+
                     Explore Project
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </button>
 
             </div>
@@ -395,31 +413,45 @@ that want to grow.
         </div>
 
 
-        <!-- PROJECT 2 -->
 
-        <div class="portfolio-card">
+        <!-- ================= PROJECT 2 ================= -->
+
+        <div class="portfolio-card"
+             data-project="automation">
 
             <div class="portfolio-video">
 
                 <video
                     src="videos/automation.mp4"
                     muted
-                    loop
                     playsinline
                     preload="metadata">
                 </video>
 
                 <div class="video-overlay">
-                    <i class="fa-solid fa-play"></i>
+
+                    <div class="play-circle">
+
+                        <i class="fa-solid fa-play"></i>
+
+                    </div>
+
+                    <span>Watch Concept</span>
+
                 </div>
 
             </div>
 
+
             <div class="portfolio-content">
 
-                <span class="project-category">AUTOMATION</span>
+                <span class="project-category">
+                    AUTOMATION
+                </span>
 
-                <h3>Smart Business Automation</h3>
+                <h3>
+                    Smart Business Automation
+                </h3>
 
                 <p>
                     Automated workflows that connect business tools
@@ -427,8 +459,11 @@ that want to grow.
                 </p>
 
                 <button class="project-btn">
+
                     Explore Project
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </button>
 
             </div>
@@ -436,31 +471,45 @@ that want to grow.
         </div>
 
 
-        <!-- PROJECT 3 -->
 
-        <div class="portfolio-card">
+        <!-- ================= PROJECT 3 ================= -->
+
+        <div class="portfolio-card"
+             data-project="web">
 
             <div class="portfolio-video">
 
                 <video
                     src="videos/web-development.mp4"
                     muted
-                    loop
                     playsinline
                     preload="metadata">
                 </video>
 
                 <div class="video-overlay">
-                    <i class="fa-solid fa-play"></i>
+
+                    <div class="play-circle">
+
+                        <i class="fa-solid fa-play"></i>
+
+                    </div>
+
+                    <span>Watch Concept</span>
+
                 </div>
 
             </div>
 
+
             <div class="portfolio-content">
 
-                <span class="project-category">WEB DEVELOPMENT</span>
+                <span class="project-category">
+                    WEB DEVELOPMENT
+                </span>
 
-                <h3>Modern Digital Platform</h3>
+                <h3>
+                    Modern Digital Platform
+                </h3>
 
                 <p>
                     High-performance, responsive websites designed
@@ -468,8 +517,11 @@ that want to grow.
                 </p>
 
                 <button class="project-btn">
+
                     Explore Project
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </button>
 
             </div>
@@ -477,31 +529,45 @@ that want to grow.
         </div>
 
 
-        <!-- PROJECT 4 -->
 
-        <div class="portfolio-card">
+        <!-- ================= PROJECT 4 ================= -->
+
+        <div class="portfolio-card"
+             data-project="cloud">
 
             <div class="portfolio-video">
 
                 <video
                     src="videos/cloud.mp4"
                     muted
-                    loop
                     playsinline
                     preload="metadata">
                 </video>
 
                 <div class="video-overlay">
-                    <i class="fa-solid fa-play"></i>
+
+                    <div class="play-circle">
+
+                        <i class="fa-solid fa-play"></i>
+
+                    </div>
+
+                    <span>Watch Concept</span>
+
                 </div>
 
             </div>
 
+
             <div class="portfolio-content">
 
-                <span class="project-category">CLOUD & DEVOPS</span>
+                <span class="project-category">
+                    CLOUD & DEVOPS
+                </span>
 
-                <h3>Scalable Cloud Infrastructure</h3>
+                <h3>
+                    Scalable Cloud Infrastructure
+                </h3>
 
                 <p>
                     Secure and scalable cloud infrastructure built
@@ -509,17 +575,204 @@ that want to grow.
                 </p>
 
                 <button class="project-btn">
+
                     Explore Project
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </button>
 
             </div>
 
         </div>
 
+
     </div>
 
 </section>
+
+
+<!-- ================= PROJECT MODAL ================= -->
+
+<div class="project-modal" id="projectModal">
+
+    <div class="project-modal-overlay"></div>
+
+
+    <div class="project-modal-content">
+
+
+        <!-- CLOSE -->
+
+        <button class="modal-close">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <!-- VIDEO AREA -->
+
+        <div class="modal-video-container">
+
+            <video
+                id="modalVideo"
+                controls
+                playsinline>
+            </video>
+
+            <div class="video-loading">
+
+                <i class="fa-solid fa-spinner"></i>
+
+                <span>Loading project...</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT DETAILS -->
+
+        <div class="project-details"
+             id="projectDetails">
+             style="display: none;">
+
+
+            <span class="project-category"
+                  id="modalCategory">
+
+                AI SOLUTIONS
+
+            </span>
+
+
+            <h2 id="modalTitle">
+
+                AI Business Assistant
+
+            </h2>
+
+
+            <p id="modalDescription">
+
+                An intelligent AI-powered assistant designed
+                to automate customer support and business operations.
+
+            </p>
+
+
+            <!-- CASE STUDY -->
+
+            <div class="case-study">
+
+
+                <div class="case-item">
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    <div>
+
+                        <h4>
+                            The Challenge
+                        </h4>
+
+                        <p id="modalChallenge">
+                            Businesses often spend significant time
+                            handling repetitive customer queries.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="case-item">
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                    <div>
+
+                        <h4>
+                            Our Solution
+                        </h4>
+
+                        <p id="modalSolution">
+                            We design AI assistants that understand
+                            customer questions and automate responses.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="case-item">
+
+                    <i class="fa-solid fa-gears"></i>
+
+                    <div>
+
+                        <h4>
+                            How It Works
+                        </h4>
+
+                        <p id="modalHow">
+                            The AI receives a request, processes the
+                            information and connects with business systems.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- TECHNOLOGIES -->
+
+            <div class="modal-tech">
+
+                <h4>
+                    Technologies
+                </h4>
+
+                <div id="modalTechList"
+                     class="tech-tags">
+
+                    <span>AI</span>
+
+                    <span>Python</span>
+
+                    <span>APIs</span>
+
+                    <span>Cloud</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- CTA -->
+
+            <a href="#contact"
+               class="modal-project-btn">
+
+                Start a Similar Project
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</div>
 
 <!-- ================= CONTACT / GET QUOTE ================= -->
 
