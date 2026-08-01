@@ -250,8 +250,7 @@ document.body.style.overflow = "hidden";
 const projectDetails =
     document.getElementById("projectDetails");
 
-projectDetails.style.display =
-    "none";
+projectDetails.classList.remove("show");
 
 
 /* START VIDEO */
@@ -268,18 +267,16 @@ modalVideo.play()
 
 /* SHOW DETAILS AFTER VIDEO */
 
+/* SHOW DETAILS AFTER VIDEO */
+
 modalVideo.onended = function () {
 
-    projectDetails.style.display =
-        "block";
+    projectDetails.classList.add("show");
 
-    projectDetails.style.animation =
-        "detailsReveal .7s ease";
 
-};
-        });
-
-    });
+ };
+ });
+ });
 
 
     /* CLOSE MODAL */
@@ -302,6 +299,36 @@ modalVideo.onended = function () {
 
     }
 
+     const startSimilarProject =
+    document.querySelector(
+        "#startSimilarProject"
+    );
+
+if (startSimilarProject) {
+
+    startSimilarProject.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+
+            closeProjectModal();
+
+            setTimeout(function () {
+
+                document.querySelector(
+                    "#contact"
+                ).scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }, 300);
+
+        }
+    );
+
+}
 
     modalClose.addEventListener(
         "click",
