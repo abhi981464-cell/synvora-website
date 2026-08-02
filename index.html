@@ -16,6 +16,157 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const heroImage = document.querySelector(".hero-image");
+
+    if (!heroImage) return;
+
+    const cards = heroImage.querySelectorAll(".floating-card");
+    const rings = heroImage.querySelectorAll(".orbit-ring");
+
+    document.addEventListener("mousemove", (e) => {
+
+        if (window.innerWidth <= 768) return;
+
+        const x = (e.clientX / window.innerWidth - 0.5);
+        const y = (e.clientY / window.innerHeight - 0.5);
+
+        /* Main ecosystem movement */
+        heroImage.style.transform =
+            `translate(${x * 8}px, ${y * 8}px)`;
+
+        /* Floating cards — different depth */
+        cards.forEach((card, index) => {
+
+            const depth = (index + 1) * 2;
+
+            card.style.transform =
+                `translate(${x * depth}px, ${y * depth}px)`;
+
+        });
+
+        /* Orbit rings — slower depth movement */
+        rings.forEach((ring, index) => {
+
+            const depth = (index + 1) * 1.5;
+
+            ring.style.transform =
+                `translate(${x * depth}px, ${y * depth}px)`;
+
+        });
+
+    });
+
+    /* Reset when mouse leaves window */
+    document.addEventListener("mouseleave", () => {
+
+        heroImage.style.transform = "";
+
+        cards.forEach(card => {
+            card.style.transform = "";
+        });
+
+        rings.forEach(ring => {
+            ring.style.transform = "";
+        });
+
+    });
+
+});
+</script>
+
+<script>
+/* =========================================
+   PREMIUM MOUSE GLOW
+========================================= */
+
+const cursorGlow = document.createElement("div");
+
+cursorGlow.className = "cursor-glow";
+
+document.body.appendChild(cursorGlow);
+
+document.addEventListener("mousemove", (e) => {
+    cursorGlow.style.left = e.clientX + "px";
+    cursorGlow.style.top = e.clientY + "px";
+});
+</script>
+
+<script>
+/* =========================================
+   SYNVORA — HERO PARALLAX
+========================================= */
+
+const homeRight = document.querySelector(".home-right");
+const heroImage = document.querySelector(".hero-image");
+const heroGlow = document.querySelector(".hero-glow");
+const orbits = document.querySelectorAll(".orbit");
+const floatingCards = document.querySelectorAll(".floating-card");
+
+if (homeRight) {
+    homeRight.addEventListener("mousemove", (e) => {
+
+        const rect = homeRight.getBoundingClientRect();
+
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        /* Main hero image */
+        if (heroImage) {
+            heroImage.style.transform =
+                `translate(${x * 18}px, ${y * 18}px) scale(1.03)`;
+        }
+
+        /* Glow */
+        if (heroGlow) {
+            heroGlow.style.transform =
+                `translate(${x * 35}px, ${y * 35}px)`;
+        }
+
+        /* Orbit rings */
+        orbits.forEach((orbit, index) => {
+            const strength = 8 + index * 5;
+
+            orbit.style.marginLeft = `${x * strength}px`;
+            orbit.style.marginTop = `${y * strength}px`;
+        });
+
+        /* Floating technology cards */
+        floatingCards.forEach((card, index) => {
+
+            const strength = 12 + index * 4;
+
+            card.style.transform =
+                `translate(${x * strength}px, ${y * strength}px)`;
+        });
+    });
+
+
+    /* Reset when mouse leaves */
+    homeRight.addEventListener("mouseleave", () => {
+
+        if (heroImage) {
+            heroImage.style.transform = "";
+        }
+
+        if (heroGlow) {
+            heroGlow.style.transform = "";
+        }
+
+        orbits.forEach((orbit) => {
+            orbit.style.marginLeft = "";
+            orbit.style.marginTop = "";
+        });
+
+        floatingCards.forEach((card) => {
+            card.style.transform = "";
+        });
+    });
+}
+</script>
+
 <body>
  
 <div class="cursor-glow"></div>    
@@ -86,154 +237,162 @@
 
 <section class="home" id="home">
 
-<div class="home-container">
+    <div class="home-container">
 
-<div class="home-left">
+        <!-- HERO CONTENT -->
+        <div class="home-left">
 
-<span class="tag">
-🚀 BUILDING THE FUTURE
-</span>
+            <div class="tag">
+                <i class="fas fa-rocket"></i>
+                BUILDING THE FUTURE
+            </div>
 
-<h1>
-One Problem.<br>
-Infinite Solutions.
-</h1>
+            <h1>
+                One Problem.
+                <span>Infinite Solutions.</span>
+            </h1>
 
-<p>
+            <p>
+                We build modern digital solutions that help businesses
+                innovate, automate and grow — from AI-powered systems
+                and high-performance websites to cloud infrastructure,
+                cybersecurity and intelligent automation.
+            </p>
 
-We build modern websites, AI solutions,
-business automation, cloud infrastructure,
-cybersecurity and networking for businesses
-that want to grow.
+            <!-- FEATURES -->
+            <div class="features">
 
-</p>
+                <div>
+                    <i class="fas fa-check-circle"></i>
+                    AI Development
+                </div>
 
-<div class="features">
+                <div>
+                    <i class="fas fa-check-circle"></i>
+                    Website Development
+                </div>
 
-<div><i class="fa-solid fa-check"></i> AI Development</div>
+                <div>
+                    <i class="fas fa-check-circle"></i>
+                    Cloud Computing
+                </div>
 
-<div><i class="fa-solid fa-check"></i> Website Development</div>
+                <div>
+                    <i class="fas fa-check-circle"></i>
+                    Cyber Security
+                </div>
 
-<div><i class="fa-solid fa-check"></i> Cloud Computing</div>
+                <div>
+                    <i class="fas fa-check-circle"></i>
+                    Networking
+                </div>
 
-<div><i class="fa-solid fa-check"></i> Cyber Security</div>
+                <div>
+                    <i class="fas fa-check-circle"></i>
+                    Automation
+                </div>
 
-<div><i class="fa-solid fa-check"></i> Networking</div>
+            </div>
 
-<div><i class="fa-solid fa-check"></i> Automation</div>
+            <!-- BUTTONS -->
+            <div class="buttons">
 
-</div>
+                <a href="#contact" class="btn">
+                    Start a Project
+                    <i class="fas fa-arrow-right"></i>
+                </a>
 
-<div class="buttons">
+                <a href="#services" class="btn2">
+                    Explore Services
+                    <i class="fas fa-chevron-down"></i>
+                </a>
 
-    <a href="#contact" class="btn">
-        Start a Project
-    </a>
+            </div>
 
-    <a href="#services" class="btn2">
-        Explore Services
-    </a>
+        </div>
 
-</div>
 
-</div>
+        <!-- HERO VISUAL -->
+        <div class="home-right">
 
-<div class="home-right">
+            <!-- GLOW -->
+            <div class="hero-glow"></div>
 
-    <div class="hero-glow"></div>
+            <!-- ORBIT RINGS -->
+            <div class="orbit orbit1"></div>
+            <div class="orbit orbit2"></div>
+            <div class="orbit orbit3"></div>
+            <div class="orbit orbit4"></div>
 
-    <div class="orbit orbit1"></div>
-    <div class="orbit orbit2"></div>
-    <div class="orbit orbit3"></div>
-    <div class="orbit orbit4"></div>
 
-    <img src="images/hero/IMG_8279.PNG" alt="Synvora AI" class="hero-image">
+            <!-- CENTRAL VISUAL -->
+            <div class="synvora-core">
 
-  <div class="floating-card card1">
+                <div class="core-ring"></div>
 
-    <i class="fa-solid fa-gears"></i>
+                <div class="core-logo">
+                    <span>S</span>
+                </div>
 
-    <div>
+                <div class="core-text">
+                    <strong>SYNVORA</strong>
+                    <small>TECHNOLOGY ECOSYSTEM</small>
+                </div>
 
-        <strong>Automation</strong>
+            </div>
 
-        <small>Workflow Integration</small>
+
+            <!-- FLOATING TECHNOLOGY CARDS -->
+
+            <div class="floating-card card1">
+                <i class="fas fa-robot"></i>
+                <span>AI & Automation</span>
+            </div>
+
+            <div class="floating-card card2">
+                <i class="fas fa-globe"></i>
+                <span>Web Development</span>
+            </div>
+
+            <div class="floating-card card3">
+                <i class="fas fa-cloud"></i>
+                <span>Cloud Infrastructure</span>
+            </div>
+
+            <div class="floating-card card4">
+                <i class="fas fa-shield-halved"></i>
+                <span>Cyber Security</span>
+            </div>
+
+        </div>
 
     </div>
 
-</div>
 
-<div class="floating-card card2">
+    <!-- STATS -->
+    <div class="stats">
 
-    <i class="fa-solid fa-cloud"></i>
+        <div class="stat-card">
+            <h2>10+</h2>
+            <p>Technologies</p>
+        </div>
 
-    <div>
+        <div class="stat-card">
+            <h2>24/7</h2>
+            <p>Digital Support</p>
+        </div>
 
-        <strong>Cloud Computing</strong>
+        <div class="stat-card">
+            <h2>100%</h2>
+            <p>Custom Solutions</p>
+        </div>
 
-        <small>AWS Infrastructure</small>
-
-    </div>
-
-</div>
-
-<div class="floating-card card3">
-
-    <i class="fa-solid fa-shield-halved"></i>
-
-    <div>
-
-        <strong>Cyber Security</strong>
-
-        <small>Threat Protection</small>
+        <div class="stat-card">
+            <h2>∞</h2>
+            <p>Possibilities</p>
+        </div>
 
     </div>
-
-</div>
-
-<div class="floating-card card4">
-
-    <i class="fa-solid fa-network-wired"></i>
-
-    <div>
-
-        <strong>Networking</strong>
-
-        <small>Enterprise Systems</small>
-
-    </div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="stats">
-
-<div class="stat-card">
-<h2>250+</h2>
-<p>Projects</p>
-</div>
-
-<div class="stat-card">
-<h2>99%</h2>
-<p>Client Satisfaction</p>
-</div>
-
-<div class="stat-card">
-<h2>24/7</h2>
-<p>Support</p>
-</div>
-
-<div class="stat-card">
-<h2>15+</h2>
-<p>Technologies</p>
-</div>
-
-</div>
 
 </section>
 

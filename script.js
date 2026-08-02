@@ -1,14 +1,22 @@
+/* =========================================================
+   SYNVORA — CURSOR GLOW
+========================================================= */
+
 const glow = document.querySelector(".cursor-glow");
 
-document.addEventListener("mousemove", (e) => {
+if (glow) {
 
-    glow.style.left = e.clientX + "px";
+    document.addEventListener("mousemove", (e) => {
 
-    glow.style.top = e.clientY + "px";
+        glow.style.left = e.clientX + "px";
+        glow.style.top = e.clientY + "px";
 
-});
+    });
 
- /* =========================================================
+}
+
+
+/* =========================================================
    INTERACTIVE PORTFOLIO PROJECTS
 ========================================================= */
 
@@ -38,8 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             category: "AI SOLUTIONS",
 
-            title:
-                "AI Business Assistant",
+            title: "AI Business Assistant",
 
             description:
                 "An intelligent AI-powered assistant designed to automate customer support and business operations.",
@@ -53,8 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
             how:
                 "The AI receives a request, processes the information and connects with business systems to deliver the right response.",
 
-            video:
-                "videos/ai-assistant.mp4",
+            video: "videos/ai-assistant.mp4",
 
             technologies:
                 ["AI", "Python", "APIs", "Cloud"]
@@ -64,11 +70,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         automation: {
 
-            category:
-                "AUTOMATION",
+            category: "AUTOMATION",
 
-            title:
-                "Smart Business Automation",
+            title: "Smart Business Automation",
 
             description:
                 "Intelligent workflows that connect business tools and automate repetitive operations.",
@@ -82,8 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
             how:
                 "When an event occurs, the automation workflow processes the information and automatically triggers the required actions.",
 
-            video:
-                "videos/automation.mp4",
+            video: "videos/automation.mp4",
 
             technologies:
                 ["Automation", "APIs", "JavaScript", "Cloud"]
@@ -93,11 +96,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         web: {
 
-            category:
-                "WEB DEVELOPMENT",
+            category: "WEB DEVELOPMENT",
 
-            title:
-                "Modern Digital Platform",
+            title: "Modern Digital Platform",
 
             description:
                 "High-performance, responsive digital platforms designed for modern businesses and startups.",
@@ -111,8 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
             how:
                 "We combine modern frontend technologies, responsive design and scalable backend systems to create reliable digital platforms.",
 
-            video:
-                "videos/web-development.mp4",
+            video: "videos/web-development.mp4",
 
             technologies:
                 ["HTML", "CSS", "JavaScript", "React"]
@@ -122,11 +122,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         cloud: {
 
-            category:
-                "CLOUD & DEVOPS",
+            category: "CLOUD & DEVOPS",
 
-            title:
-                "Scalable Cloud Infrastructure",
+            title: "Scalable Cloud Infrastructure",
 
             description:
                 "Secure and scalable cloud infrastructure designed for reliable and growing applications.",
@@ -140,8 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
             how:
                 "Applications are deployed to cloud infrastructure with automated deployment and monitoring systems.",
 
-            video:
-                "videos/cloud.mp4",
+            video: "videos/cloud.mp4",
 
             technologies:
                 ["AWS", "Docker", "DevOps", "Cloud"]
@@ -151,7 +148,9 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
 
-    /* OPEN PROJECT */
+    /* =========================================================
+       OPEN PROJECT
+    ========================================================= */
 
     portfolioCards.forEach(function (card) {
 
@@ -165,8 +164,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!project) return;
 
-
-            /* UPDATE CONTENT */
 
             document.getElementById(
                 "modalCategory"
@@ -240,46 +237,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
             /* OPEN MODAL */
 
-projectModal.classList.add("active");
+            projectModal.classList.add(
+                "active"
+            );
 
-document.body.style.overflow = "hidden";
-
-
-/* HIDE DETAILS */
-
-const projectDetails =
-    document.getElementById("projectDetails");
-
-projectDetails.classList.remove("show");
+            document.body.style.overflow =
+                "hidden";
 
 
-/* START VIDEO */
+            /* HIDE DETAILS */
 
-modalVideo.play()
-    .catch(function () {
+            const projectDetails =
+                document.getElementById(
+                    "projectDetails"
+                );
 
-        console.log(
-            "Video requires user interaction."
-        );
+            projectDetails.classList.remove(
+                "show"
+            );
+
+
+            /* START VIDEO */
+
+            modalVideo.play()
+                .catch(function () {
+
+                    console.log(
+                        "Video requires user interaction."
+                    );
+
+                });
+
+
+            /* SHOW DETAILS AFTER VIDEO */
+
+            modalVideo.onended = function () {
+
+                projectDetails.classList.add(
+                    "show"
+                );
+
+            };
+
+        });
 
     });
 
 
-/* SHOW DETAILS AFTER VIDEO */
-
-/* SHOW DETAILS AFTER VIDEO */
-
-modalVideo.onended = function () {
-
-    projectDetails.classList.add("show");
-
-
- };
- });
- });
-
-
-    /* CLOSE MODAL */
+    /* =========================================================
+       CLOSE PROJECT MODAL
+    ========================================================= */
 
     function closeProjectModal() {
 
@@ -289,57 +296,69 @@ modalVideo.onended = function () {
 
         modalVideo.pause();
 
-        modalVideo.currentTime =
-            0;
+        modalVideo.currentTime = 0;
 
         modalVideo.src = "";
 
-        document.body.style.overflow =
-            "";
+        document.body.style.overflow = "";
 
     }
 
-     const startSimilarProject =
-    document.querySelector(
-        "#startSimilarProject"
-    );
 
-if (startSimilarProject) {
-
-    startSimilarProject.addEventListener(
-        "click",
-        function (event) {
-
-            event.preventDefault();
-
-            closeProjectModal();
-
-            setTimeout(function () {
-
-                document.querySelector(
-                    "#contact"
-                ).scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-            }, 300);
-
-        }
-    );
-
-}
-
-    modalClose.addEventListener(
-        "click",
-        closeProjectModal
-    );
+    const startSimilarProject =
+        document.querySelector(
+            "#startSimilarProject"
+        );
 
 
-    modalOverlay.addEventListener(
-        "click",
-        closeProjectModal
-    );
+    if (startSimilarProject) {
+
+        startSimilarProject.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                closeProjectModal();
+
+                setTimeout(function () {
+
+                    document.querySelector(
+                        "#contact"
+                    ).scrollIntoView({
+
+                        behavior: "smooth",
+
+                        block: "start"
+
+                    });
+
+                }, 300);
+
+            }
+        );
+
+    }
+
+
+    if (modalClose) {
+
+        modalClose.addEventListener(
+            "click",
+            closeProjectModal
+        );
+
+    }
+
+
+    if (modalOverlay) {
+
+        modalOverlay.addEventListener(
+            "click",
+            closeProjectModal
+        );
+
+    }
 
 
     /* ESCAPE KEY */
@@ -349,7 +368,10 @@ if (startSimilarProject) {
         function (event) {
 
             if (
-                event.key === "Escape"
+                event.key === "Escape" &&
+                projectModal.classList.contains(
+                    "active"
+                )
             ) {
 
                 closeProjectModal();
@@ -360,3 +382,435 @@ if (startSimilarProject) {
     );
 
 });
+
+
+/* =========================================================
+   SYNVORA — INTERACTIVE STATS COUNTER
+========================================================= */
+
+const statNumbers =
+    document.querySelectorAll(
+        ".stat-card h2"
+    );
+
+
+const statsObserver =
+    new IntersectionObserver(
+
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (
+                    !entry.isIntersecting
+                ) return;
+
+
+                const counter =
+                    entry.target;
+
+
+                const targetText =
+                    counter.textContent.trim();
+
+
+                /* INFINITY */
+
+                if (
+                    targetText === "∞"
+                ) {
+
+                    counter.textContent =
+                        "∞";
+
+                    observer.unobserve(
+                        counter
+                    );
+
+                    return;
+
+                }
+
+
+                const target =
+                    parseInt(
+                        targetText
+                    );
+
+
+                if (
+                    isNaN(target)
+                ) return;
+
+
+                let current = 0;
+
+
+                const suffix =
+                    targetText.includes("+")
+                        ? "+"
+                        : "";
+
+
+                const duration =
+                    1500;
+
+
+                const increment =
+                    target /
+                    (duration / 16);
+
+
+                const updateCounter =
+                    () => {
+
+                        current +=
+                            increment;
+
+
+                        if (
+                            current <
+                            target
+                        ) {
+
+                            counter.textContent =
+                                Math.ceil(
+                                    current
+                                ) + suffix;
+
+
+                            requestAnimationFrame(
+                                updateCounter
+                            );
+
+                        }
+
+                        else {
+
+                            counter.textContent =
+                                target +
+                                suffix;
+
+                        }
+
+                    };
+
+
+                updateCounter();
+
+
+                observer.unobserve(
+                    counter
+                );
+
+            });
+
+        },
+
+        {
+            threshold: 0.6
+        }
+
+    );
+
+
+statNumbers.forEach(stat => {
+
+    statsObserver.observe(
+        stat
+    );
+
+});
+
+
+/* =========================================================
+   SYNVORA — SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(
+
+        ".service-card, " +
+
+        ".tech-card, " +
+
+        ".portfolio-card, " +
+
+        ".about-card, " +
+
+        ".process-card, " +
+
+        ".contact-item, " +
+
+        ".contact-form-wrapper, " +
+
+        ".section-title"
+
+    );
+
+
+const revealObserver =
+    new IntersectionObserver(
+
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (
+                    !entry.isIntersecting
+                ) return;
+
+
+                entry.target.classList.add(
+                    "reveal-visible"
+                );
+
+
+                observer.unobserve(
+                    entry.target
+                );
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+revealElements.forEach(element => {
+
+    element.classList.add(
+        "reveal-element"
+    );
+
+
+    revealObserver.observe(
+        element
+    );
+
+});
+
+
+/* =========================================================
+   SYNVORA — PREMIUM HERO PARALLAX
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        /* Disable parallax on touch devices */
+
+        if (
+            window.matchMedia(
+                "(hover: none)"
+            ).matches
+        ) {
+            return;
+        }
+
+
+        const homeRight =
+            document.querySelector(
+                ".home-right"
+            );
+
+
+        const heroImage =
+            document.querySelector(
+                ".hero-image"
+            );
+
+
+        const orbits =
+            document.querySelectorAll(
+                ".orbit"
+            );
+
+
+        const floatingCards =
+            document.querySelectorAll(
+                ".floating-card"
+            );
+
+
+        if (
+            !homeRight
+        ) return;
+
+
+        let mouseX = 0;
+
+        let mouseY = 0;
+
+        let currentX = 0;
+
+        let currentY = 0;
+
+
+        /* MOUSE TRACKING */
+
+        homeRight.addEventListener(
+            "mousemove",
+            function (e) {
+
+                const rect =
+                    homeRight.getBoundingClientRect();
+
+
+                mouseX =
+                    (
+                        e.clientX -
+                        rect.left -
+                        rect.width / 2
+                    )
+                    /
+                    (rect.width / 2);
+
+
+                mouseY =
+                    (
+                        e.clientY -
+                        rect.top -
+                        rect.height / 2
+                    )
+                    /
+                    (rect.height / 2);
+
+            }
+        );
+
+
+        /* RESET WHEN MOUSE LEAVES */
+
+        homeRight.addEventListener(
+            "mouseleave",
+            function () {
+
+                mouseX = 0;
+
+                mouseY = 0;
+
+            }
+        );
+
+
+        /* SMOOTH PARALLAX */
+
+        function animateParallax() {
+
+            currentX +=
+                (
+                    mouseX -
+                    currentX
+                ) * 0.08;
+
+
+            currentY +=
+                (
+                    mouseY -
+                    currentY
+                ) * 0.08;
+
+
+            /* HERO IMAGE */
+
+            if (
+                heroImage
+            ) {
+
+                heroImage.style.transform =
+                    `
+                    translate(
+                        ${currentX * 14}px,
+                        ${currentY * 14}px
+                    )
+                    `;
+
+            }
+
+
+            /* ORBIT RINGS */
+
+            orbits.forEach(
+                function (
+                    orbit,
+                    index
+                ) {
+
+                    const strength =
+                        5 +
+                        (
+                            index * 4
+                        );
+
+
+                    orbit.style.marginLeft =
+                        `${
+                            currentX *
+                            strength
+                        }px`;
+
+
+                    orbit.style.marginTop =
+                        `${
+                            currentY *
+                            strength
+                        }px`;
+
+                }
+            );
+
+
+            /* FLOATING CARDS */
+
+            floatingCards.forEach(
+                function (
+                    card,
+                    index
+                ) {
+
+                    const strength =
+                        8 +
+                        (
+                            index *
+                            4
+                        );
+
+
+                    const rotate =
+                        currentX *
+                        (
+                            2 +
+                            index
+                        );
+
+
+                    card.style.transform =
+                        `
+                        translate(
+                            ${currentX * strength}px,
+                            ${currentY * strength}px
+                        )
+                        rotate(${rotate}deg)
+                        `;
+
+                }
+            );
+
+
+            requestAnimationFrame(
+                animateParallax
+            );
+
+        }
+
+
+        animateParallax();
+
+    }
+);
